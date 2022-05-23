@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.FirebaseLibraryApp">
         <activity
-                android:name="pl.kielce.tu.MainActivity"
+                android:name="pl.kielce.tu.SaveBook"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

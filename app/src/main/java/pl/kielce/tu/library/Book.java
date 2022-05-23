@@ -1,24 +1,22 @@
 package pl.kielce.tu.library;
 
-import java.util.Random;
-
 public class Book {
-    long id;
+    long copyOfBookId;
     String title;
     String author;
 
     public Book(String title, String author) {
-        this.id = System.currentTimeMillis();
+        this.copyOfBookId = System.currentTimeMillis();
         this.title = title;
         this.author = author;
     }
 
-    public long getId() {
-        return id;
+    public long getCopyOfBookId() {
+        return copyOfBookId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCopyOfBookId(int copyOfBookId) {
+        this.copyOfBookId = copyOfBookId;
     }
 
     public String getTitle() {

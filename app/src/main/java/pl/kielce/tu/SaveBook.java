@@ -1,15 +1,15 @@
 package pl.kielce.tu;
 
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class SaveBook extends AppCompatActivity {
 
-    TextView titleTV,authorTV;
+    EditText titleEdtTxt,authorEdtTxt;
     Button saveBtn;
 
     @Override
@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         saveBtn = findViewById(R.id.saveBtn);
-        titleTV = findViewById(R.id.titleTV);
-        authorTV = findViewById(R.id.authorTV);
+        titleEdtTxt = findViewById(R.id.titleEdtTxt);
+        authorEdtTxt = findViewById(R.id.authorEdtTxt);
 
-        saveBtn.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Book: " + titleTV.getText()
-                        + authorTV.getText(),Toast.LENGTH_SHORT).show());
+        saveBtn.setOnClickListener(v -> Toast.makeText(SaveBook.this, "Book: " + titleEdtTxt.getText()
+                        + authorEdtTxt.getText(),Toast.LENGTH_SHORT).show());
     }
 
 

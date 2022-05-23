@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FirebaseLibraryApp</string>
+    <string name="author">author</string>
+    <string name="title">title</string>
 </resources>

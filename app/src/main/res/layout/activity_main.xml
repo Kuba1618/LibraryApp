@@ -5,23 +5,28 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".SaveBook">
     <Button
             android:text="Zapisz"
+            android:id="@+id/saveBtn"
             android:layout_width="193dp"
-            android:layout_height="64dp" android:id="@+id/saveBtn"
+            android:layout_height="64dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/authorTV" android:layout_marginTop="56dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/authorEdtTxt" android:layout_marginTop="60dp"/>
     <EditText
+            android:id="@+id/titleEdtTxt"
             android:layout_width="209dp"
-            android:layout_height="43dp" android:id="@+id/titleTV"
+            android:layout_height="48dp"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="100dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:hint="title"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/title"/>
     <EditText
+            android:id="@+id/authorEdtTxt"
             android:layout_width="209dp"
-            android:layout_height="43dp" android:id="@+id/authorTV"
+            android:layout_height="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/titleTV"
-            android:layout_marginTop="48dp" android:hint="author"/>
+            android:hint="@string/author"
+            app:layout_constraintTop_toBottomOf="@+id/titleEdtTxt" android:layout_marginTop="48dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
