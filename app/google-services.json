@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "885902416199",
+    "project_id": "libraryapp-bcd85",
+    "storage_bucket": "libraryapp-bcd85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885902416199:android:0d648a83f2fed277695462",
+        "android_client_info": {
+          "package_name": "pl.kielce.tu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885902416199-7uv65v3e1c46kqlcfi9firvai7g20cr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhvLI9bPNe3p-n8RVX3RMTZoKrHm90qYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885902416199-7uv65v3e1c46kqlcfi9firvai7g20cr9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-package pl.kielce.firebaselibraryapp;
+package pl.kielce.tu;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
