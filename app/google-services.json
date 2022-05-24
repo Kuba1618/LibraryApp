@@ -1,18 +1,27 @@
 {
   "project_info": {
     "project_number": "885902416199",
+    "firebase_url": "https://libraryapp-bcd85-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "libraryapp-bcd85",
     "storage_bucket": "libraryapp-bcd85.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:885902416199:android:0d648a83f2fed277695462",
+        "mobilesdk_app_id": "1:885902416199:android:8f6037144d200f1a695462",
         "android_client_info": {
           "package_name": "pl.kielce.tu"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "885902416199-n2pfqmt01h3b2ct4qnqn9l6ku3hofi4d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.kielce.tu",
+            "certificate_hash": "1d01c1216b7309783ae8eb5e2e9256658de50ebc"
+          }
+        },
         {
           "client_id": "885902416199-7uv65v3e1c46kqlcfi9firvai7g20cr9.apps.googleusercontent.com",
           "client_type": 3

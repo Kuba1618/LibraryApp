@@ -2,10 +2,13 @@ package pl.kielce.tu;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import pl.kielce.tu.library.Book;
 
 public class SaveBook extends AppCompatActivity {
 
@@ -21,8 +24,18 @@ public class SaveBook extends AppCompatActivity {
         titleEdtTxt = findViewById(R.id.titleEdtTxt);
         authorEdtTxt = findViewById(R.id.authorEdtTxt);
 
-        saveBtn.setOnClickListener(v -> Toast.makeText(SaveBook.this, "Book: " + titleEdtTxt.getText()
-                        + authorEdtTxt.getText(),Toast.LENGTH_SHORT).show());
+        saveBtn.setOnClickListener(v -> saveBook());
+    }
+
+    public void saveBook(){
+
+        Book book = new Book(titleEdtTxt.getText().toString().trim(),authorEdtTxt.getText().toString().trim());
+
+        DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books");
+        ref.child("" + book.getCopyOfBookId()).setValue(book.toHashMap())
+                .addOnSuccessListener(unused -> Toast.makeText(SaveBook.this,
+                        "Book saved successfully !", Toast.LENGTH_SHORT).show())
+                .addOnFailureListener(e -> Toast.makeText(SaveBook.this,"" + e.getMessage(),Toast.LENGTH_SHORT).show());
     }
 
 

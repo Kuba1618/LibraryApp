@@ -1,5 +1,7 @@
 package pl.kielce.tu.library;
 
+import java.util.HashMap;
+
 public class Book {
     long copyOfBookId;
     String title;
@@ -33,5 +35,13 @@ public class Book {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public HashMap<String, String> toHashMap(){
+        final HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("copyOfBookId", "" + copyOfBookId);
+        hashMap.put("title","" + title);
+        hashMap.put("author","" + author);
+        return hashMap;
     }
 }
