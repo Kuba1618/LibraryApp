@@ -52,7 +52,7 @@ public class Menu extends AppCompatActivity {
                 break;
             }
             case "RENT_BOOK" : {
-                intent = new Intent(this, SaveStudent.class);
+                intent = new Intent(this, HireBook.class);
                 break;
             }
             default:

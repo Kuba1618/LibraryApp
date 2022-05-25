@@ -1,6 +1,7 @@
 package pl.kielce.tu;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Button;
@@ -70,17 +71,22 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
 
     @Override
     public void onLongBookClick(int position) {
-        Toast.makeText(this, "Work!", Toast.LENGTH_SHORT).show();
-//        DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.URL).getReference("Books");
-//        ref.setValue(allOfSongs.get(position).toHashMap())
-//                .addOnSuccessListener(aVoid -> {
-////                    Toast.makeText(AllOfSongs.this,"Song shared successfully !", Toast.LENGTH_SHORT).show();
-//                })
-//                .addOnFailureListener(e -> {
-//                    Toast.makeText(AllOfSongs.this,"" + e.getMessage(),Toast.LENGTH_SHORT).show();
-//                });
-//
-//        Intent intent1 = new Intent(this,GroupViewSongActivity.class);
-//        startActivity(intent1);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete this item from all resources?");
+        builder.setMessage("Deletion is permanent...");
+
+        builder.setPositiveButton("Yes", (dialog, which) -> deleteSongFromSongs(listOfBooks.get(position)))
+                .setNegativeButton("No", (dialog, which) -> {                      });
+        AlertDialog ad = builder.create();
+        ad.show();
     }
+
+    private void deleteSongFromSongs(Book book){
+        Intent intent = new Intent(this,Menu.class);
+        startActivity(intent);
+        DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books").child(book.getBookId());
+        ref.removeValue();
+    }
+
+
 }

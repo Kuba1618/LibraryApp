@@ -3,37 +3,37 @@ package pl.kielce.tu.library;
 import java.util.HashMap;
 
 public class Renting {
-    long rentingId;
-    long bookId;
-    long studentId;
+    String rentingId;
+    String bookId;
+    String studentId;
 
-    public Renting(long bookId, long studentId) {
-        this.rentingId = System.currentTimeMillis();
+    public Renting(String bookId, String studentId) {
+        this.rentingId = "" + System.currentTimeMillis();
         this.bookId = bookId;
         this.studentId = studentId;
     }
 
-    public long getRentingId() {
+    public String getRentingId() {
         return rentingId;
     }
 
-    public void setRentingId(long rentingId) {
+    public void setRentingId(String rentingId) {
         this.rentingId = rentingId;
     }
 
-    public long getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(long bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
-    public long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
