@@ -3,22 +3,24 @@ package pl.kielce.tu.library;
 import java.util.HashMap;
 
 public class Book {
-    long copyOfBookId;
+    String bookId;
     String title;
     String author;
 
+    public Book() {}
+
     public Book(String title, String author) {
-        this.copyOfBookId = System.currentTimeMillis();
+        this.bookId = "" + System.currentTimeMillis();
         this.title = title;
         this.author = author;
     }
 
-    public long getCopyOfBookId() {
-        return copyOfBookId;
+    public String getBookId() {
+        return bookId;
     }
 
-    public void setCopyOfBookId(int copyOfBookId) {
-        this.copyOfBookId = copyOfBookId;
+    public void setBookId(String bookId) {
+        this.bookId = bookId;
     }
 
     public String getTitle() {
@@ -39,7 +41,7 @@ public class Book {
 
     public HashMap<String, String> toHashMap(){
         final HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("copyOfBookId", "" + copyOfBookId);
+        hashMap.put("bookId", "" + bookId);
         hashMap.put("title","" + title);
         hashMap.put("author","" + author);
         return hashMap;

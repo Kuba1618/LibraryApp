@@ -6,13 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".SaveBook">
-    <Button
-            android:text="Zapisz"
-            android:id="@+id/saveBtn"
-            android:layout_width="193dp"
-            android:layout_height="64dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/authorEdtTxt" android:layout_marginTop="60dp"/>
+
     <EditText
             android:id="@+id/titleEdtTxt"
             android:layout_width="209dp"
@@ -29,4 +23,22 @@
             android:hint="@string/author"
             app:layout_constraintTop_toBottomOf="@+id/titleEdtTxt" android:layout_marginTop="48dp"
             app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+            android:text="Dodaj książkę"
+            android:id="@+id/saveBtn"
+            android:layout_width="193dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authorEdtTxt" android:layout_marginTop="60dp"/>
+
+    <Button
+            android:text="Menu"
+            android:id="@+id/menuBtn"
+            android:layout_width="193dp"
+            android:layout_height="64dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/authorEdtTxt" android:layout_marginTop="380dp"
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

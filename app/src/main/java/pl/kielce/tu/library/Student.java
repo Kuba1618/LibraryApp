@@ -3,22 +3,22 @@ package pl.kielce.tu.library;
 import java.util.HashMap;
 
 public class Student {
-    long studentCardId;
+    long studentId;
     String name;
     String surname;
 
     public Student(String name, String surname) {
-        studentCardId = System.currentTimeMillis();
+        studentId = System.currentTimeMillis();
         this.name = name;
         this.surname = surname;
     }
 
-    public long getStudentCardId() {
-        return studentCardId;
+    public long getStudentId() {
+        return studentId;
     }
 
-    public void setStudentCardId(long studentCardId) {
-        this.studentCardId = studentCardId;
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
     }
 
     public String getName() {
@@ -39,7 +39,7 @@ public class Student {
 
     public HashMap<String, String> toHashMap(){
         final HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("studentCardId", "" + studentCardId);
+        hashMap.put("studentId", "" + studentId);
         hashMap.put("name","" + name);
         hashMap.put("surname","" + surname);
         return hashMap;

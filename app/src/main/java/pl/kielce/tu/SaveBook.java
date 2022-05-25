@@ -1,5 +1,6 @@
 package pl.kielce.tu;
 
+import android.content.Intent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,18 +14,26 @@ import pl.kielce.tu.library.Book;
 public class SaveBook extends AppCompatActivity {
 
     EditText titleEdtTxt,authorEdtTxt;
-    Button saveBtn;
+    Button saveBtn,menuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_save_book);
 
         saveBtn = findViewById(R.id.saveBtn);
+        menuBtn = findViewById(R.id.menuBtn);
         titleEdtTxt = findViewById(R.id.titleEdtTxt);
         authorEdtTxt = findViewById(R.id.authorEdtTxt);
 
+        menuBtn.setOnClickListener(v -> goToMenu());
         saveBtn.setOnClickListener(v -> saveBook());
+
+    }
+
+    private void goToMenu() {
+        Intent intent = new Intent(this,Menu.class);
+        startActivity(intent);
     }
 
     public void saveBook(){
@@ -32,7 +41,7 @@ public class SaveBook extends AppCompatActivity {
         Book book = new Book(titleEdtTxt.getText().toString().trim(),authorEdtTxt.getText().toString().trim());
 
         DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books");
-        ref.child("" + book.getCopyOfBookId()).setValue(book.toHashMap())
+        ref.child("" + book.getBookId()).setValue(book.toHashMap())
                 .addOnSuccessListener(unused -> Toast.makeText(SaveBook.this,
                         "Book saved successfully !", Toast.LENGTH_SHORT).show())
                 .addOnFailureListener(e -> Toast.makeText(SaveBook.this,"" + e.getMessage(),Toast.LENGTH_SHORT).show());
