@@ -3,21 +3,21 @@ package pl.kielce.tu.library;
 import java.util.HashMap;
 
 public class Student {
-    long studentId;
+    String studentId;
     String name;
     String surname;
 
     public Student(String name, String surname) {
-        studentId = System.currentTimeMillis();
+        studentId = "" + System.currentTimeMillis();
         this.name = name;
         this.surname = surname;
     }
 
-    public long getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(long studentId) {
+    public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
 
