@@ -7,6 +7,8 @@ public class Renting {
     String bookId;
     String studentId;
 
+    public Renting(){}
+
     public Renting(String bookId, String studentId) {
         this.rentingId = "" + System.currentTimeMillis();
         this.bookId = bookId;

@@ -36,7 +36,7 @@ public class RentBook extends AppCompatActivity {
         actionBar.setTitle("Renting Book");
 
         menuBtn = findViewById(R.id.menuBtn);
-        rentBtn = findViewById(R.id.rentBtn);
+        rentBtn = findViewById(R.id.rentalBtn);
         pole1 = findViewById(R.id.bookIdEdtTxt);
         pole2 = findViewById(R.id.studentIdEdtTxt);
 

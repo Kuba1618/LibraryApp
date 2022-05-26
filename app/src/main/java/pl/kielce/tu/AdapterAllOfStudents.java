@@ -43,7 +43,7 @@ public class AdapterAllOfStudents extends RecyclerView.Adapter<AdapterAllOfStude
         return listOfStudents.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,View.OnLongClickListener{
         TextView nameStudentTV,surnameStudentTv;
         OnStudentListener onStudentListener;
         public MyViewHolder(@NonNull View itemView, OnStudentListener onStudentListener) {
@@ -55,16 +55,25 @@ public class AdapterAllOfStudents extends RecyclerView.Adapter<AdapterAllOfStude
             this.onStudentListener = onStudentListener;
 
             itemView.setOnLongClickListener(this);
+            itemView.setOnClickListener(this);
         }
+
+
 
         @Override
         public boolean onLongClick(View v) {
             onStudentListener.onLongStudentClick(getAdapterPosition());
             return true;
         }
+
+        @Override
+        public void onClick(View v) {
+            onStudentListener.onStudentClick(getAdapterPosition());
+        }
     }
 
     public interface OnStudentListener {
+        void onStudentClick(int position);
         void onLongStudentClick(int position);
     }
 }

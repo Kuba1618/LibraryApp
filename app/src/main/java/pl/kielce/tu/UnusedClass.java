@@ -38,7 +38,7 @@ public class UnusedClass extends AppCompatActivity implements AdapterAllOfBooks.
 
         //recyclerBookView = findViewById(R.id.listOfBookTitlesRv);
         //recyclerStudentView = findViewById(R.id.listOfStudentsRV);
-        rentBtn = findViewById(R.id.rentBtn);
+        rentBtn = findViewById(R.id.rentalBtn);
         menuBtn = findViewById(R.id.menuBtn);
         refBook = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books");
         refStudent = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Students");
@@ -116,6 +116,11 @@ public class UnusedClass extends AppCompatActivity implements AdapterAllOfBooks.
         startActivity(intent);
         DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books").child(book.getBookId());
         ref.removeValue();
+    }
+
+    @Override
+    public void onStudentClick(int position) {
+
     }
 
     @Override
