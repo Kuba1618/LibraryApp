@@ -50,7 +50,7 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
         listOfBooks = new ArrayList<>();
         listOfStudents = new ArrayList<>();
         adapterAllOfBooks = new AdapterAllOfBooks(this,listOfBooks,this);
-        adapterAllOfStudents = new AdapterAllOfStudents(this, listOfStudents, this::onLongStudentClick);
+        adapterAllOfStudents = new AdapterAllOfStudents(this, listOfStudents, this);
         bookRecyclerView.setAdapter(adapterAllOfBooks);
         studentsRecyclerView.setAdapter(adapterAllOfStudents);
 
@@ -94,6 +94,11 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
     private void goToMenu() {
         Intent intent = new Intent(this,Menu.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBookCLick(int position) {
+        Toast.makeText(this, "Short click!", Toast.LENGTH_SHORT).show();
     }
 
     @Override

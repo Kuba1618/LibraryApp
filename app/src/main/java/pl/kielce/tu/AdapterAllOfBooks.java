@@ -43,7 +43,7 @@ public class AdapterAllOfBooks extends RecyclerView.Adapter<AdapterAllOfBooks.My
         return listOfBooks.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener{
         TextView titleBookTv,authorBookTv;
         OnBookListener onBookListener;
         public MyViewHolder(@NonNull View itemView,OnBookListener onBookListener) {
@@ -54,6 +54,7 @@ public class AdapterAllOfBooks extends RecyclerView.Adapter<AdapterAllOfBooks.My
 
             this.onBookListener = onBookListener;
 
+            itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
         }
 
@@ -62,9 +63,15 @@ public class AdapterAllOfBooks extends RecyclerView.Adapter<AdapterAllOfBooks.My
             onBookListener.onLongBookClick(getAdapterPosition());
             return true;
         }
+
+        @Override
+        public void onClick(View v) {
+            onBookListener.onBookCLick(getAdapterPosition());
+        }
     }
 
     public interface OnBookListener {
+        void onBookCLick(int position);
         void onLongBookClick(int position);
     }
 }

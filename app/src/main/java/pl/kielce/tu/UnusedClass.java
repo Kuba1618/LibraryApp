@@ -95,6 +95,11 @@ public class UnusedClass extends AppCompatActivity implements AdapterAllOfBooks.
     }
 
     @Override
+    public void onBookCLick(int position) {
+
+    }
+
+    @Override
     public void onLongBookClick(int position) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete this item from all resources?");
