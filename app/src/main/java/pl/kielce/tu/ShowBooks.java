@@ -3,7 +3,6 @@ package pl.kielce.tu;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -15,14 +14,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.*;
 import pl.kielce.tu.library.Book;
+import pl.kielce.tu.library.Student;
 
 import java.util.ArrayList;
 
-public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.OnBookListener {
-    RecyclerView recyclerView;
-    DatabaseReference ref;
+public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.OnBookListener, AdapterAllOfStudents.OnStudentListener {
+    RecyclerView bookRecyclerView,studentsRecyclerView;
+    DatabaseReference refBook,refStudent;
     AdapterAllOfBooks adapterAllOfBooks;
+    AdapterAllOfStudents adapterAllOfStudents;
     ArrayList<Book> listOfBooks;
+    ArrayList<Student> listOfStudents;
     Button menuBtn;
 
     @Override
@@ -34,17 +36,25 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
         assert actionBar != null;
         actionBar.setTitle("All Of Books");
 
-        recyclerView = findViewById(R.id.listOfBookTitlesRv);
+        bookRecyclerView = findViewById(R.id.listOfBooksRv);
+        studentsRecyclerView = findViewById(R.id.listOfStudentsRv);
         menuBtn = findViewById(R.id.menuBtn);
-        ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books");
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        refBook = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Books");
+        refStudent = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Students");
+
+        bookRecyclerView.setHasFixedSize(true);
+        bookRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        studentsRecyclerView.setHasFixedSize(true);
+        studentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         listOfBooks = new ArrayList<>();
+        listOfStudents = new ArrayList<>();
         adapterAllOfBooks = new AdapterAllOfBooks(this,listOfBooks,this);
-        recyclerView.setAdapter(adapterAllOfBooks);
+        adapterAllOfStudents = new AdapterAllOfStudents(this, listOfStudents, this::onLongStudentClick);
+        bookRecyclerView.setAdapter(adapterAllOfBooks);
+        studentsRecyclerView.setAdapter(adapterAllOfStudents);
 
-        ref.addValueEventListener(new ValueEventListener() {
+        refBook.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -53,6 +63,23 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
                     listOfBooks.add(book);
                 }
                 adapterAllOfBooks.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        refStudent.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    Student student = dataSnapshot.getValue(Student.class);
+                    listOfStudents.add(student);
+                }
+                adapterAllOfStudents.notifyDataSetChanged();
             }
 
             @Override
@@ -89,4 +116,8 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
     }
 
 
+    @Override
+    public void onLongStudentClick(int position) {
+        Toast.makeText(this, "Hello Word!", Toast.LENGTH_SHORT).show();
+    }
 }

@@ -36,7 +36,7 @@ public class UnusedClass extends AppCompatActivity implements AdapterAllOfBooks.
         assert actionBar != null;
         actionBar.setTitle("Rent book");
 
-        recyclerBookView = findViewById(R.id.listOfBookTitlesRv);
+        //recyclerBookView = findViewById(R.id.listOfBookTitlesRv);
         //recyclerStudentView = findViewById(R.id.listOfStudentsRV);
         rentBtn = findViewById(R.id.rentBtn);
         menuBtn = findViewById(R.id.menuBtn);

@@ -7,6 +7,7 @@ public class Student {
     String name;
     String surname;
 
+    public Student(){}
     public Student(String name, String surname) {
         studentId = "" + System.currentTimeMillis();
         this.name = name;

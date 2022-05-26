@@ -17,10 +17,10 @@ public class AdapterAllOfStudents extends RecyclerView.Adapter<AdapterAllOfStude
     private final ArrayList<Student> listOfStudents;
     private final OnStudentListener onStudentListener;
 
-    public AdapterAllOfStudents(Context context, ArrayList<Student> listOfStudents, OnStudentListener onBookListener) {
+    public AdapterAllOfStudents(Context context, ArrayList<Student> listOfStudents, OnStudentListener onStudentListener) {
         this.context = context;
         this.listOfStudents = listOfStudents;
-        this.onStudentListener = onBookListener;
+        this.onStudentListener = onStudentListener;
     }
 
     @NonNull
