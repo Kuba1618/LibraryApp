@@ -98,8 +98,11 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
 
     @Override
     public void onBookCLick(int position) {
-        Toast.makeText(this, "Short click!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Book: " + listOfBooks.get(position).getTitle(), Toast.LENGTH_SHORT).show();
     }
+
+
+
 
     @Override
     public void onLongBookClick(int position) {
@@ -108,7 +111,7 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
         builder.setMessage("Deletion is permanent...");
 
         builder.setPositiveButton("Yes", (dialog, which) -> deleteSongFromSongs(listOfBooks.get(position)))
-                .setNegativeButton("No", (dialog, which) -> {                      });
+                .setNegativeButton("No", (dialog, which) -> {  });
         AlertDialog ad = builder.create();
         ad.show();
     }
@@ -123,6 +126,20 @@ public class ShowBooks extends AppCompatActivity implements AdapterAllOfBooks.On
 
     @Override
     public void onLongStudentClick(int position) {
-        Toast.makeText(this, "Hello Word!", Toast.LENGTH_SHORT).show();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete this item from all resources?");
+        builder.setMessage("Deletion is permanent...");
+
+        builder.setPositiveButton("Yes", (dialog, which) -> deleteStudentFromStudents(listOfStudents.get(position)))
+                .setNegativeButton("No", (dialog, which) -> {            });
+        AlertDialog ad = builder.create();
+        ad.show();
+    }
+
+    private void deleteStudentFromStudents(Student student){
+        Intent intent = new Intent(this,Menu.class);
+        startActivity(intent);
+        DatabaseReference ref = FirebaseDatabase.getInstance(Firebase.firebaseURL).getReference("Students").child(student.getStudentId());
+        ref.removeValue();
     }
 }
