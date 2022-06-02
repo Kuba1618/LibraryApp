@@ -11,17 +11,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import pl.kielce.tu.library.Book;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdapterAllOfBooks extends RecyclerView.Adapter<AdapterAllOfBooks.MyViewHolder> {
 
     Context context;
-    private final ArrayList<Book> listOfBooks;
+    private List<Book> listOfBooks;
     private final  OnBookListener onBookListener;
 
     public AdapterAllOfBooks(Context context, ArrayList<Book> listOfBooks, OnBookListener onBookListener) {
         this.context = context;
         this.listOfBooks = listOfBooks;
         this.onBookListener = onBookListener;
+    }
+
+    public void setFilteredList(List<Book> filteredList){
+        this.listOfBooks = filteredList;
+        notifyDataSetChanged();
     }
 
     @NonNull
