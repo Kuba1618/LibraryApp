@@ -10,6 +10,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.FirebaseLibraryApp">
         <activity
+                android:name=".SearchBook"
+                android:exported="true"/>
+        <activity
                 android:name=".HireBook"
                 android:exported="true"/>
         <activity

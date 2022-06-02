@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class Menu extends AppCompatActivity {
-    Button studentBtn,bookBtn,rentingBtn,showBooksBtn;
+    Button studentBtn,bookBtn,rentingBtn,showBooksBtn,searchBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class Menu extends AppCompatActivity {
         bookBtn = findViewById(R.id.bookBtn);
         rentingBtn = findViewById(R.id.rentingBtn);
         showBooksBtn = findViewById(R.id.showBooksBtn);
+        searchBtn = findViewById(R.id.searchBtn);
 
         //share an object to database  --->   myRef.push().setValue(member);
 
@@ -33,6 +34,8 @@ public class Menu extends AppCompatActivity {
         rentingBtn.setOnClickListener(v -> moveToActivity(String.valueOf(Activities.RENT_BOOK)));
 
         showBooksBtn.setOnClickListener(v -> moveToActivity(String.valueOf(Activities.SHOW_BOOKS)));
+
+        searchBtn.setOnClickListener(v -> moveToActivity(String.valueOf(Activities.SEARCH_BOOK)));
     }
 
 
@@ -53,6 +56,10 @@ public class Menu extends AppCompatActivity {
             }
             case "RENT_BOOK" : {
                 intent = new Intent(this, HireBook.class);
+                break;
+            }
+            case "SEARCH_BOOK" : {
+                intent = new Intent(this, SearchBook.class);
                 break;
             }
             default:
