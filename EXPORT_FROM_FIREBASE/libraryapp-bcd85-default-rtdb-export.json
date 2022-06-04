@@ -1,0 +1,83 @@
+{
+  "Books": {
+    "1653422600580": {
+      "author": "Morris Mano",
+      "bookId": "1653422600580",
+      "title": "Architektura Systemów Komputerowych"
+    },
+    "1653491249141": {
+      "author": "Henryk Sienkiewicz",
+      "bookId": "1653491249141",
+      "title": "Potop"
+    },
+    "1653491303282": {
+      "author": "Martin Fowler",
+      "bookId": "1653491303282",
+      "title": "Architektura Systemów Zarządzania Przedsiębiorstwem"
+    },
+    "1654172838974": {
+      "author": "Robert C. Martin",
+      "bookId": "1654172838974",
+      "title": "Czysty Kod"
+    },
+    "1654258347038": {
+      "author": "Juri Gagarin",
+      "bookId": "1654258347038",
+      "title": "Pan Tadeusz"
+    }
+  },
+  "Rentals": {
+    "1653581929301": {
+      "bookId": "1653491303282",
+      "rentingId": "1653581929301",
+      "studentId": "1653422492254"
+    },
+    "1654172874248": {
+      "bookId": "1654172838974",
+      "rentingId": "1654172874248",
+      "studentId": "1654172787070"
+    },
+    "1654258404106": {
+      "bookId": "1654172838974",
+      "rentingId": "1654258404106",
+      "studentId": "1654172787070"
+    }
+  },
+  "Students": {
+    "1653422492254": {
+      "name": "Jakub",
+      "studentId": "1653422492254",
+      "surname": "Prusicki"
+    },
+    "1653422499527": {
+      "name": "Robert",
+      "studentId": "1653422499527",
+      "surname": "Lewandowski"
+    },
+    "1653507329183": {
+      "name": "Piotr",
+      "studentId": "1653507329183",
+      "surname": "Żyła"
+    },
+    "1653508143618": {
+      "name": "Jakub",
+      "studentId": "1653508143618",
+      "surname": "Prusicki"
+    },
+    "1653581665463": {
+      "name": "cccc",
+      "studentId": "1653581665463",
+      "surname": "dddd"
+    },
+    "1654172787070": {
+      "name": "Chuck",
+      "studentId": "1654172787070",
+      "surname": "Norris"
+    },
+    "1654258305552": {
+      "name": "Jan",
+      "studentId": "1654258305552",
+      "surname": "Kowalski"
+    }
+  }
+}
